@@ -26,22 +26,22 @@ if __name__ == "__main__":
     U_tally = openmc.Tally(name='fuel')
     U_tally.scores = ['fission', 'total', 'absorption', 'elastic', 'scatter', 'decay-rate']
     U_tally.nuclides = ['U235', 'U238', 'O16', 'H1']
-    settings.batches = 20
-    settings.particles = 300
+    settings.batches = 80
+    settings.particles = 2000
     settings.inactive = 10
     power = (3000.0e6)/163  # watts
     timesteps = [1, 3, 6, 11, 21, 36, 36, 56, 86, 126, 176, 246, 336]  # days
-    model = openmc.Model(geometry, materials, settings)
-    chain_file='/media/ann/600E180D69017994/chain_endfb71_pwr.xml'
-    op = openmc.deplete.CoupledOperator(model, chain_file)
-    openmc.deplete.CECMIntegrator(op, timesteps, power, timestep_units='d').integrate()
-    results = openmc.deplete.Results("depletion_results.h5")
-    time, keff = results.get_keff()
+    #model = openmc.Model(geometry, materials, settings)
+    #chain_file='/media/ann/600E180D69017994/chain_endfb71_pwr.xml'
+    #op = openmc.deplete.CoupledOperator(model, chain_file)
+    #openmc.deplete.CECMIntegrator(op, timesteps, power, timestep_units='d').integrate()
+    #results = openmc.deplete.Results("depletion_results.h5")
+    #time, keff = results.get_keff()
 
-    settings.run_mode = 'fixed source'
-    cecm = openmc.deplete.CECMIntegrator(operator, dt, power)
-    cecm.integrate()
-    source.strength = 18e0
+    #settings.run_mode = 'fixed source'
+    #cecm = openmc.deplete.CECMIntegrator(operator, dt, power)
+    #cecm.integrate()
+    #source.strength = 18e0
 
     #colors = {
         #water_mat: (50,50,125),
@@ -98,6 +98,6 @@ if __name__ == "__main__":
     plots.export_to_xml('plots.xml')
     settings.export_to_xml('settings.xml')
     geometry.export_to_xml('geometry.xml')
-    model.export_to_xml('model.xml')
+    #model.export_to_xml('model.xml')
     openmc.plot_geometry()
-    openmc.run()
+    #openmc.run()

@@ -52,11 +52,6 @@ bottom_surf.boundary_type = 'vacuum'
 # 1 TVS container
 TVS_container_cell = openmc.Cell(fill=water_mat, region=TVS_hex_lat_surf & -top_surf & +bottom_surf)
 TVS_container_universe = openmc.Universe(cells=[TVS_container_cell])
-
-# 7 TVS container
-container_cell = openmc.Cell(fill=water_mat, region=box_region)
-container_universe = openmc.Universe(cells=[container_cell])
-
 # 1.1 tvel in water
 fuel_cell = openmc.Cell(fill=UO2_mat, region=-fuel_surf & +bottom_surf & -top_surf)
 cladding_cell = openmc.Cell(fill=zirconi_mat, region=+fuel_surf & -cladding_surf & +bottom_surf & -top_surf)
@@ -122,21 +117,5 @@ TVS_hex_lat.outer = TVS_container_universe
 
 TVS_lat_cell = openmc.Cell(region=TVS_hex_lat_surf, fill=TVS_hex_lat)
 
-TVS_universe = openmc.Universe(cells=[TVS_lat_cell])
-universe = openmc.Universe(cells=[container_cell])
-
-# 7 TVS lattice
-
-hex_lat = openmc.HexLattice(lattice_id=228)
-hex_lat.orientation = 'y'
-hex_lat.center = (0, 0)
-hex_lat.pitch = [p.TVS_edge_length * sqrt(3)]
-
-lat_center = [TVS_universe]
-lat_ring = [TVS_universe] * 6
-hex_lat.universes = [lat_ring, lat_center]
-hex_lat.outer = container_universe
-
-lat_cell = openmc.Cell(region=box_region, fill=hex_lat)
-
-universe = openmc.Universe(cells=[lat_cell])
+universe = openmc.Universe(cells=[TVS_lat_cell])
+#universe = openmc.Universe(cells=[container_cell])

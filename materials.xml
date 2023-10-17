@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<materials>
+  <material id="1" name="water">
+    <density units="g/cm3" value="0.99821" />
+    <nuclide ao="1.99977" name="H1" />
+    <nuclide ao="0.00023" name="H2" />
+    <nuclide ao="0.99757" name="O16" />
+    <nuclide ao="0.00038" name="O17" />
+    <nuclide ao="0.00205" name="O18" />
+  </material>
+  <material depletable="true" id="2" name="UO2" volume="574.2576022111259">
+    <density units="g/cm3" value="10.4" />
+    <nuclide ao="0.00014480966306692014" name="U234" />
+    <nuclide ao="0.01620131823329653" name="U235" />
+    <nuclide ao="0.9835796622843757" name="U238" />
+    <nuclide ao="7.420981926091186e-05" name="U236" />
+    <nuclide ao="1.9952412" name="O16" />
+    <nuclide ao="0.000758" name="O17" />
+    <nuclide ao="0.0040008" name="O18" />
+  </material>
+  <material id="3">
+    <density units="g/cm3" value="6.55" />
+    <nuclide ao="0.509355" name="Zr90" />
+    <nuclide ao="0.111078" name="Zr91" />
+    <nuclide ao="0.16978500000000002" name="Zr92" />
+    <nuclide ao="0.17206200000000002" name="Zr94" />
+    <nuclide ao="0.02772" name="Zr96" />
+    <nuclide ao="0.01" name="Nb93" />
+  </material>
+  <material depletable="true" id="5" name="UO2(0.95)-(0.05)" volume="79392.6359089217">
+    <density units="g/cm3" value="10.250499999999999" />
+    <nuclide ao="4.612280485527823e-05" name="U234" />
+    <nuclide ao="0.005160223588996779" name="U235" />
+    <nuclide ao="0.31327641997342554" name="U238" />
+    <nuclide ao="2.3636302575573014e-05" name="U236" />
+    <nuclide ao="0.6621220697070681" name="O16" />
+    <nuclide ao="0.0002515427853223749" name="O17" />
+    <nuclide ao="0.0013276680415801548" name="O18" />
+    <nuclide ao="3.558463359235241e-05" name="Gd152" />
+    <nuclide ao="0.0003878725061566413" name="Gd154" />
+    <nuclide ao="0.002633262885834078" name="Gd155" />
+    <nuclide ao="0.0036420872481772687" name="Gd156" />
+    <nuclide ao="0.0027844975786015763" name="Gd157" />
+    <nuclide ao="0.004419611492170169" name="Gd158" />
+    <nuclide ao="0.003889400451644118" name="Gd160" />
+  </material>
+</materials>

@@ -15,7 +15,7 @@ water_mat.add_nuclide('O17', 0.00038, percent_type='ao')
 water_mat.add_nuclide('O18', 0.00205, percent_type='ao')
 water_mat.set_density('g/cm3', 0.99821)
 UO2_mat=openmc.Material(name='UO2')
-UO2_mat.add_element('U', 1.0,  enrichment=3.0)
+UO2_mat.add_element('U', 1.0,  enrichment=1.6)
 UO2_mat.add_element('O', 2.0)
 UO2_mat.set_density('g/cm3', 10.4)
 UO2_mat.volume=V

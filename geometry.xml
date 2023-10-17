@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<geometry>
+  <cell id="1" material="1" region="-15 16 -17 18 19 -20 -13 14" universe="1" />
+  <cell id="2" material="2" region="-1 14 -13" universe="2" />
+  <cell id="3" material="3" region="1 -2 14 -13" universe="2" />
+  <cell id="4" material="1" region="2 -3 4 -5 -6 7 8 14 -13" universe="2" />
+  <cell id="5" material="5" region="-1 14 -13" universe="3" />
+  <cell id="6" material="3" region="1 -2 14 -13" universe="3" />
+  <cell id="7" material="1" region="2 -3 4 -5 -6 7 8 14 -13" universe="3" />
+  <cell id="8" material="3" region="9 -10 14 -13" universe="4" />
+  <cell id="9" material="1" region="(-9 | (10 -3 4 -5 -6 7 8)) 14 -13" universe="4" />
+  <cell id="10" material="1" region="-11 14 -13" universe="5" />
+  <cell id="11" material="3" region="-12 11 14 -13" universe="5" />
+  <cell id="12" material="1" region="12 -9 14 -13" universe="5" />
+  <cell id="13" material="3" region="9 -10 14 -13" universe="5" />
+  <cell id="14" material="1" region="10 -3 4 -5 -6 7 8 14 -13" universe="5" />
+  <cell fill="6" id="15" region="-15 16 -17 18 19 -20" universe="7" />
+  <hex_lattice id="6" n_rings="11" orientation="x">
+    <pitch>1.275</pitch>
+    <outer>1</outer>
+    <center>0 0</center>
+    <universes>
+          2 2 2 2 2 2 2 2 2 2 2
+         2 2 2 2 2 2 2 2 2 2 2 2
+        2 2 3 2 2 2 2 2 2 2 3 2 2
+       2 2 2 2 2 2 2 2 2 2 2 2 2 2
+      2 2 2 2 2 2 2 5 2 2 2 2 2 2 2
+     2 2 2 2 2 5 2 2 2 2 5 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 3 2 2 2 2 2 2 2
+   2 2 2 2 5 2 3 2 2 5 2 2 2 5 2 2 2 2
+  2 2 2 2 2 2 2 5 2 2 2 2 2 2 2 2 2 2 2
+ 2 2 2 2 2 2 2 2 2 2 2 2 5 3 2 2 2 2 2 2
+2 2 3 2 2 5 2 2 2 2 4 2 2 2 2 5 2 2 3 2 2
+ 2 2 2 2 2 2 3 5 2 2 2 2 2 2 2 2 2 2 2 2
+  2 2 2 2 2 2 2 2 2 2 2 5 2 2 2 2 2 2 2
+   2 2 2 2 5 2 2 2 5 2 2 3 2 5 2 2 2 2
+    2 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2
+     2 2 2 2 2 5 2 2 2 2 5 2 2 2 2 2
+      2 2 2 2 2 2 2 5 2 2 2 2 2 2 2
+       2 2 2 2 2 2 2 2 2 2 2 2 2 2
+        2 2 3 2 2 2 2 2 2 2 3 2 2
+         2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 2 2 2 2 2 2 2 2</universes>
+  </hex_lattice>
+  <surface coeffs="0.0 0.0 0.3785" id="1" type="z-cylinder" />
+  <surface coeffs="0.0 0.0 0.455" id="2" type="z-cylinder" />
+  <surface coeffs="0.6375" id="3" type="x-plane" />
+  <surface coeffs="-0.6375" id="4" type="x-plane" />
+  <surface coeffs="0.5773502691896257 1.0 0.0 0.7361215932167728" id="5" type="plane" />
+  <surface coeffs="-0.5773502691896257 1.0 0.0 0.7361215932167728" id="6" type="plane" />
+  <surface coeffs="-0.5773502691896257 1.0 0.0 -0.7361215932167728" id="7" type="plane" />
+  <surface coeffs="0.5773502691896257 1.0 0.0 -0.7361215932167728" id="8" type="plane" />
+  <surface coeffs="0.0 0.0 0.545" id="9" type="z-cylinder" />
+  <surface coeffs="0.0 0.0 0.63" id="10" type="z-cylinder" />
+  <surface coeffs="0.0 0.0 0.3785" id="11" type="z-cylinder" />
+  <surface coeffs="0.0 0.0 0.455" id="12" type="z-cylinder" />
+  <surface boundary="vacuum" coeffs="175.0" id="13" type="z-plane" />
+  <surface boundary="vacuum" coeffs="-175.0" id="14" type="z-plane" />
+  <surface coeffs="12.146006288076752" id="15" type="y-plane" />
+  <surface coeffs="-12.146006288076752" id="16" type="y-plane" />
+  <surface coeffs="1.7320508075688772 1.0 0.0 24.292012576153503" id="17" type="plane" />
+  <surface coeffs="-1.7320508075688772 1.0 0.0 -24.292012576153503" id="18" type="plane" />
+  <surface coeffs="1.7320508075688772 1.0 0.0 -24.292012576153503" id="19" type="plane" />
+  <surface coeffs="-1.7320508075688772 1.0 0.0 24.292012576153503" id="20" type="plane" />
+</geometry>
