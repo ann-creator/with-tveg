@@ -40,13 +40,13 @@ hex_lat_surf_6 = openmc.hexagonal_prism(edge_length=p.TVS_edge_length, orientati
 
 hex_lat_surf = TVS_hex_lat_surf | hex_lat_surf_1 | hex_lat_surf_2 | hex_lat_surf_3 | hex_lat_surf_4 | hex_lat_surf_5 | hex_lat_surf_6
 
-box = openmc.ZCylinder(r=40, boundary_type='reflective')
-box_region = -box & -top_surf & +bottom_surf
-# hex_lat_surf.boundary_type = 'reflective'
+#box = openmc.ZCylinder(r=40, boundary_type='reflective')
+#box_region = -box & -top_surf & +bottom_surf
+#hex_lat_surf.boundary_type = 'reflective'
 
 top_surf.boundary_type = 'vacuum'
 bottom_surf.boundary_type = 'vacuum'
-
+TVS_hex_lat_surf.boundary_type='reflective'
 # Geometry
 
 # 1 TVS container
