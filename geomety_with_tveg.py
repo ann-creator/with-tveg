@@ -3,7 +3,7 @@ from math import sqrt
 import openmc
 import numpy as np
 from params import GeometryParams
-from mat import UO2_mat, cladding_mat, mixed_with_Gd2O3_mat,  water_mat, tube_mat, helium_mat
+from mat import UO2_mat, cladding_mat, mixed_with_Gd2O3_mat,  water_mat, tube_mat, helium_mat, zirconi_mat
 
 # Surfaces
 p = GeometryParams()
@@ -26,7 +26,7 @@ TVS_hex_lat_surf = openmc.hexagonal_prism(edge_length=p.TVS_edge_length, orienta
 
 top_surf.boundary_type = 'vacuum'
 bottom_surf.boundary_type = 'vacuum'
-TVS_hex_lat_surf.boundary_type='periodic'
+TVS_hex_lat_surf.boundary_type='reflective'
 # Geometry
 
 # 1 TVS container
@@ -35,20 +35,20 @@ TVS_container_universe = openmc.Universe(cells=[TVS_container_cell])
 # 1.1 tvel in water
 helium_cell=openmc.Cell(fill=helium_mat, region=-helium_surf & +bottom_surf & -top_surf)
 fuel_cell = openmc.Cell(fill=UO2_mat, region=+helium_surf & -fuel_surf & +bottom_surf & -top_surf)
-cladding_cell = openmc.Cell(fill=cladding_mat, region=+fuel_surf & -cladding_surf & +bottom_surf & -top_surf)
+cladding_cell = openmc.Cell(fill=zirconi_mat, region=+fuel_surf & -cladding_surf & +bottom_surf & -top_surf)
 water_cell = openmc.Cell(fill=water_mat, region=+cladding_surf & water_surf & +bottom_surf & -top_surf)
 
 tvel_universe = openmc.Universe(cells=[fuel_cell, cladding_cell, water_cell])
 
 # 1.2 tveg in water
 fuel_with_Gd_cell = openmc.Cell(fill=mixed_with_Gd2O3_mat, region=-fuel_surf & +bottom_surf & -top_surf)
-cladding_with_Gd_cell = openmc.Cell(fill=tube_mat, region=+fuel_surf & -cladding_surf & +bottom_surf & -top_surf)
+cladding_with_Gd_cell = openmc.Cell(fill=zirconi_mat, region=+fuel_surf & -cladding_surf & +bottom_surf & -top_surf)
 water_with_Gd_cell = openmc.Cell(fill=water_mat, region=+cladding_surf & water_surf & +bottom_surf & -top_surf)
 
 tvel_with_Gd_universe = openmc.Universe(cells=[fuel_with_Gd_cell, cladding_with_Gd_cell, water_with_Gd_cell])
 
 # 1.3 tube in water
-tube_cladding_cell = openmc.Cell(fill=tube_mat,
+tube_cladding_cell = openmc.Cell(fill=zirconi_mat,
                                  region=+tube_inner_surf & -tube_outer_surf & +bottom_surf & -top_surf)
 tube_water_region = -tube_inner_surf | +tube_outer_surf & water_surf
 tube_water_cell = openmc.Cell(fill=water_mat, region=tube_water_region & +bottom_surf & -top_surf)
@@ -57,12 +57,12 @@ empty_tube_universe = openmc.Universe(cells=[tube_water_cell, tube_cladding_cell
 
 # 1.4 absorber in tube
 absorber_cell = openmc.Cell(fill=water_mat, region=-abs_rod_inner_surf & +bottom_surf & -top_surf)
-absorber_cladding_cell = openmc.Cell(fill=tube_mat,
+absorber_cladding_cell = openmc.Cell(fill=zirconi_mat,
                                      region=-abs_rod_outer_surf & +abs_rod_inner_surf & +bottom_surf & -top_surf)
 
 abs_tube_water_inner_cell= openmc.Cell(fill=water_mat, region=+abs_rod_outer_surf & -tube_inner_surf & +bottom_surf & -top_surf)
 
-abs_tube_cladding_cell = openmc.Cell(fill=tube_mat,
+abs_tube_cladding_cell = openmc.Cell(fill=zirconi_mat,
                                      region=+tube_inner_surf & -tube_outer_surf & +bottom_surf & -top_surf)
 
 abs_tube_water_outer_cell = openmc.Cell(fill=water_mat, region=+tube_outer_surf & water_surf & +bottom_surf & -top_surf)
