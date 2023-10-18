@@ -2,6 +2,7 @@ import openmc
 from openmc.data import NATURAL_ABUNDANCE
 import math
 from math import pi
+import neutronics_material_maker as nmm
 r=0.235
 R=0.757
 h=353
@@ -19,10 +20,10 @@ UO2_mat.add_element('U', 1.0,  enrichment=1.6)
 UO2_mat.add_element('O', 2.0)
 UO2_mat.set_density('g/cm3', 10.4)
 UO2_mat.volume=V
-zirconi_mat=openmc.Material()
-zirconi_mat.add_element('Zr', 0.99)
-zirconi_mat.add_element('Nb', 0.01)
-zirconi_mat.set_density('g/cm3', 6.55)
+#zirconi_mat=openmc.Material()
+#zirconi_mat.add_element('Zr', 0.99)
+#zirconi_mat.add_element('Nb', 0.01)
+#zirconi_mat.set_density('g/cm3', 6.55)
 Gd2O3_mat=openmc.Material()
 Gd2O3_mat.add_element('Gd', 2.0, percent_type='ao')
 Gd2O3_mat.add_element('O', 3.0, percent_type='ao')
@@ -35,8 +36,10 @@ mixed_with_Gd2O3_mat=openmc.Material.mix_materials(
     fracs=[0.95, 0.05],
     percent_type='vo')
 mixed_with_Gd2O3_mat.volume=R**2*pi*350*18*7
-helium=openmc.Material(name='Helium')
-helium.add_element('He', 1.0)
-helium.set_density('g/cm3', 0.178e-3)
-#materials_file=openmc.Materials([UO2_mat, water_mat, zirconi_mat, Gd2O3_mat])
-#materials_file.export_to_xml()
+helium_mat=openmc.Material(name='Helium')
+helium_mat.add_element('He', 1.0)
+helium_mat.set_density('g/cm3', 0.178e-3)
+water_mat = nmm.Material.from_library(name='Water, Liquid').openmc_material
+cladding_mat = nmm.Material.from_library(name='Zircaloy-2').openmc_material
+absorber_mat = nmm.Material.from_library(name='Boron Carbide (B4C)').openmc_material
+tube_mat=nmm.Material.from_library(name='SS_316L_N_IG').openmc_material

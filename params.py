@@ -19,5 +19,3 @@ class GeometryParams:
 
     rod_inserted = True
     TVS_edge_length=14.025
-    #def __init__(self):
-        #self.TVS_edge_length = self.tvel_step * self.n_tvel_rows
